@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const productRoutes = require("./routes/product");
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -29,5 +30,6 @@ mongoose
   });
 
 app.use(bodyParser.json());
+app.use("/api/product", productRoutes);
 
 module.exports = app;
