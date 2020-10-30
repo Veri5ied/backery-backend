@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const productRoutes = require("./routes/product");
+const userRoutes = require("./routes/user");
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -30,6 +31,7 @@ mongoose
   });
 
 app.use(bodyParser.json());
+app.use("/api/auth", userRoutes);
 app.use("/api/product", productRoutes);
 
 module.exports = app;

@@ -8,4 +8,4 @@ const productSchema = mongoose.Schema({
   price: { type: Number, required: true },
 });
 
-module.exports = model.Schema("productSchema", productSchema);
+module.exports = model.Schema("product", productSchema);

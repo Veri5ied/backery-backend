@@ -16,7 +16,7 @@ exports.createProduct = (req, res, next) => {
       });
     })
     .catch((error) => {
-      res.status(501).json({
+      res.status(400).json({
         error: error,
       });
     });

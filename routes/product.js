@@ -1,6 +1,6 @@
 const express = require("express");
-const router = express.Router();
 const productCtrl = require("../controllers/product");
+const router = express.Router();
 
 router.post("/", productCtrl.createProduct);
 router.delete("/:id", productCtrl.deleteProduct);
