@@ -1,7 +1,6 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
 const productRoutes = require("./routes/product");
 const userRoutes = require("./routes/user");
 
@@ -30,7 +29,7 @@ mongoose
     console.log(error);
   });
 
-app.use(bodyParser.json());
+app.use(express.json());
 app.use("/api/auth", userRoutes);
 app.use("/api/product", productRoutes);
 
