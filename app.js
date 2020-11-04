@@ -1,8 +1,11 @@
 const express = require("express");
-const app = express();
 const mongoose = require("mongoose");
+const dotenv = require("dotenv");
 const productRoutes = require("./routes/product");
 const userRoutes = require("./routes/user");
+const app = express();
+
+dotenv.config();
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -19,7 +22,7 @@ app.use((req, res, next) => {
 
 mongoose
   .connect(
-    "mongodb+srv://alvin:mX112qDtkynye5OZ@cluster0.iugyx.mongodb.net/test?retryWrites=true&w=majority"
+     `mongodb+srv://${process.env.db_username}:${process.env.db_password}@cluster0.iugyx.mongodb.net/test?retryWrites=true&w=majority`
   )
   .then(() => {
     console.log("MongoDB Atlas connected succesfully");
